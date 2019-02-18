@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
+import PostContainer from './components/PostContainer/PostContainer';
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
         <p>heart</p>
         <p>person</p>
         </header>
+        <PostContainer />
       </div>
     );
   }
