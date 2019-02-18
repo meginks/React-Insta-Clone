@@ -1,11 +1,17 @@
 import React from 'react'; 
 
 class CommentSection extends React.Component {
-    render () {
+    render (props) {
         return (
-            <div className="comment-section">
-            <p>This is filler for the comment section right now</p>
-            </div>
+            <>
+            {props.postdata.map(postdata => ( {
+                return (
+                <div key={postdata.timestamp}>
+                    {postdata.comments.username}
+                    {postdata.comments.text}
+                </div>  )  
+            } ))
+            </>
         )
     }
 }
