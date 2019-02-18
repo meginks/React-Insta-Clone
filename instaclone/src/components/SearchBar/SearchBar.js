@@ -1,12 +1,17 @@
 import React from 'react';
+import './searchbar.css';
 
-
-const SearchBar = (props) => {
+class SearchBar extends React.Component {
+    
+    render() {
     return (
         <div>
-            Search Bar will go here.
+            <form className="searchbar">
+            <input type="text" placeholder="search" /> 
+            </form>
         </div>
     )
+    }
 }
 
 
