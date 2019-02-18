@@ -7,12 +7,16 @@ function PostContainer(props) {
     return (
         <>
         {props.postdata.map(postdata => (
-            <div key={postdata.id} className="post">
-            <img src={postdata.img} alt={postdata} /> 
+            <div key={postdata.timestamp} className="post">
+            <img src={postdata.thumbnailUrl} alt={postdata.username} /> 
+            <p>{postdata.username}</p>
+            <img src={postdata.imageUrl} alt= " {postdata.username}'s instaclone pic" /> 
+            <div>heart</div>
+            <div>bubble</div>
+            <div>{postdata.likes} likes</div>
+            <CommentSection /> 
             </div> 
         ))}
-        <Post /> 
-        <CommentSection /> 
        </>
     )
 
