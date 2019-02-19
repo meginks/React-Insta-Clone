@@ -22,12 +22,12 @@ class App extends Component {
     return (
       <div className="App">
        <header className="header"> 
-        <p>instalogo</p>
-        <p>InstaClone</p> 
-        <SearchBar /> 
-        <p>Nav</p>
-        <p>heart</p>
-        <p>person</p>
+          <p>instalogo</p>
+          <p>InstaClone</p> 
+          <SearchBar /> 
+          <p>Nav</p>
+          <p>heart</p>
+          <p>person</p>
         </header> 
         {this.state.postdata.map((post) => (
         <PostContainer key={post.imageUrl} postdata={post} />

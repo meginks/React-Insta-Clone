@@ -2,14 +2,21 @@ import React from 'react';
 import Comment from './Comment';
 
 
-function CommentSection (props){
+class CommentSection extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            comment: props.comments
+        };
+    }
     
+    render() {
         return (
             <div>
-                 { props.comment.comments.map((comment, index) => ( <Comment comment={comment} key={index}/> ))}  
+                 {this.props.comment.comments.map((comment, index) => ( <Comment comment={comment} key={index}/> ))}  
             </div>
         )
         }
         
-
+    }
 export default CommentSection; 
