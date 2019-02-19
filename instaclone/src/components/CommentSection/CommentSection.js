@@ -1,12 +1,14 @@
 import React from 'react'; 
-
+import Comment from './Comment';
 function CommentSection (props){
     
         return (
             <div>
-                {props.postdata.comments.username} {props.postdata.comments.text}
+                <p>this is a test</p> 
+                 { props.comment.comments.map((comment) => ( <Comment comment={comment}/> ))}  
             </div>
         )
         }
+        
 
 export default CommentSection; 

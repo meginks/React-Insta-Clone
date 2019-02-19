@@ -22,8 +22,10 @@ class App extends Component {
         <p>Nav</p>
         <p>heart</p>
         <p>person</p>
-        </header>
-        <PostContainer postdata={this.state.postdata} />
+        </header> 
+        {this.state.postdata.map((post) => (
+        <PostContainer key={post.imageUrl} postdata={post} />
+        ))}
       </div>
     );
   }
