@@ -13,20 +13,26 @@ class CommentSection extends React.Component {
 
 
     addNewComment(event, index) { 
+        console.log('is this working');
         event.preventDefault();
-        const newComment = {  
-            username: '', 
-            text: ''
-        }; 
+        // const newComment = {  
+        //     username: '', 
+        //     text: ''
+        // }; 
         this.setState({
-            comment: [...this.state.comment, newComment]
+            comment: [...this.state.comment, 
+            {
+                text: this.state.comment.text
+              } ]
         });
-    }
+    };
     
     render() {
         return (
             <div>
-                 {this.props.comment.comments.map((comment, index) => ( <Comment comment={comment} key={index}/> ))}
+                 {this.props.comment.comments.map((comment, index) => {
+                     return  <Comment comment={this.state.comment} key={index}/> 
+                 })}
                  <AddComment addNewComment={this.addNewComment} />  
             </div>
 
@@ -36,15 +42,15 @@ class CommentSection extends React.Component {
 
     }
 
-    CommentSection.propTypes = {
-        comments: PropTypes.arrayOf(
-        PropTypes.shape({ text: PropTypes.string, username: PropTypes.string })
-        )
-    };    
+    // CommentSection.propTypes = {
+    //     comments: PropTypes.arrayOf(
+    //     PropTypes.shape({ text: PropTypes.string, username: PropTypes.string })
+    //     )
+    // };    
 
-    CommentSection.defaultProps = {
-        comment: []
-    }; 
+    // CommentSection.defaultProps = {
+    //     comment: []
+    // }; 
 
 
 export default CommentSection; 

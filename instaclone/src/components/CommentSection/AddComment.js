@@ -4,13 +4,16 @@ class AddComment extends React.Component {
     constructor (props) {
         super(props); 
         this.state = {
+            username:'',
             comment: ''
         };
     }
 
-    handleChanges = event => this.setState({ [event.target.name] : [event.target.value ]}); 
+    handleChanges = event => this.setState({ comment: event.target.value }); 
 
     submitComment = event => {
+        event.preventDefault();
+        console.log("submit comment" + event.target.value);
         this.setState({ comment: ' '});
         this.props.addNewComment(event, this.state.comment);
     }; 
@@ -23,8 +26,10 @@ class AddComment extends React.Component {
             value={this.state.comment}
             name="comment"
             onChange={this.handleChanges}
+            addNewComment={this.addNewComment}
+            placeholder="add new comment"
             />
-            <button>Comment</button>
+            <button>. . .</button>
             </form>
         )
     }
