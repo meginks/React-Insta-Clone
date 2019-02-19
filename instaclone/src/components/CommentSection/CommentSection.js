@@ -1,19 +1,12 @@
 import React from 'react'; 
 
-class CommentSection extends React.Component {
-    render (props) {
+function CommentSection (props){
+    
         return (
-            <>
-            {props.postdata.map(postdata => ( {
-                return (
-                <div key={postdata.timestamp}>
-                    {postdata.comments.username}
-                    {postdata.comments.text}
-                </div>  )  
-            } ))
-            </>
+            <div>
+                {props.postdata.comments.username} {props.postdata.comments.text}
+            </div>
         )
-    }
-}
+        }
 
 export default CommentSection; 

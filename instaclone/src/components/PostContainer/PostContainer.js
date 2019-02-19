@@ -14,7 +14,12 @@ function PostContainer(props) {
             <div>heart</div>
             <div>bubble</div>
             <div>{postdata.likes} likes</div>
+            <div className="comment-section">
+            {props.postdata.map((postdata, index ) =>
+              <div key={index}>
             <CommentSection /> 
+            </div> )} 
+            </div>
             </div> 
         ))}
        </>

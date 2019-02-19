@@ -23,7 +23,7 @@ class App extends Component {
         <p>heart</p>
         <p>person</p>
         </header>
-        <PostContainer postdata={this.state.data} />
+        <PostContainer postdata={this.state.postdata} />
       </div>
     );
   }
