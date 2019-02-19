@@ -6,10 +6,16 @@ import './App.css';
 
 class App extends Component {
   constructor() {
+    console.log('constructor running');
     super(); 
     this.state = {
-      postdata: dummyData
+      postdata: []
     };
+  }
+
+  componentDidMount() {
+    console.log('cdm running')
+    this.setState({ postdata: dummyData });
   }
 
   render() {
