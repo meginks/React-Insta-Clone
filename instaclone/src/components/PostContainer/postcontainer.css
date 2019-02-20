@@ -1,0 +1,28 @@
+
+.user-image {
+    height: 50px;
+    width: 50px;
+}
+
+.username-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-image {
+    height: auto;
+    width: 300px;
+}
+
+
+.post {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.icon-bar {
+    display: flex;
+    flex-direction: row;
+}
+

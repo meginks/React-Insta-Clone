@@ -6,22 +6,28 @@ import './App.css';
 
 class App extends Component {
   constructor() {
+    console.log('constructor running');
     super(); 
     this.state = {
-      postdata: dummyData
+      postdata: []
     };
+  }
+
+  componentDidMount() {
+    console.log('cdm running')
+    this.setState({ postdata: dummyData });
   }
 
   render() {
     return (
       <div className="App">
        <header className="header"> 
-        <p>instalogo</p>
-        <p>InstaClone</p> 
-        <SearchBar /> 
-        <p>Nav</p>
-        <p>heart</p>
-        <p>person</p>
+          <p>instalogo</p>
+          <p>InstaClone</p> 
+          <SearchBar /> 
+          <p>Nav</p>
+          <p>heart</p>
+          <p>person</p>
         </header> 
         {this.state.postdata.map((post) => (
         <PostContainer key={post.imageUrl} postdata={post} />

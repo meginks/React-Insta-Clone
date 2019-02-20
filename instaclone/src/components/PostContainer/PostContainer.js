@@ -1,26 +1,36 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
-import PropTypes from "prop-types";
-
-function PostContainer(props) {
+// import PropTypes from "prop-types";
+import "./postcontainer.css";
+const PostContainer = (props) => {
+  console.log("postcontainer props", props);
   return (
-    <> {console.log(props)}
-        <div key={props.postdata.timestamp} className="post">
-          <img src={props.postdata.thumbnailUrl} alt={props.postdata.username} />
-          <p>{props.postdata.username}</p>
+    <div>
+      {console.log("WORK", props)}
+      <div key={props.postdata.timestamp} className="post">
+        <div className="username-bar">
           <img
-            src={props.postdata.imageUrl}
-            alt=" {postdata.username}'s instaclone pic"
+            className="user-image"
+            src={props.postdata.thumbnailUrl}
+            alt={props.postdata.username}
           />
+          <p>{props.postdata.username}</p>
+        </div>
+        <img
+          className="post-image"
+          src={props.postdata.imageUrl}
+          alt="instaclone pic"
+        />
+        <div className="icon-bar">
           <div>heart</div>
           <div>bubble</div>
-          <div>{props.postdata.likes} likes</div>
-          <div className="comment-section">
-          {console.log(props)}
-           <CommentSection comment={props.postdata} />
-          </div>
         </div>
-    </>
+        <div>{props.postdata.likes} likes</div>
+        <div className="comment-section">
+          <CommentSection comment={props.postdata} />
+        </div>
+      </div>
+      </div>
   );
 }
 
