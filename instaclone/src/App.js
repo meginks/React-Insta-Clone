@@ -9,15 +9,25 @@ class App extends Component {
     console.log('constructor running');
     super(); 
     this.state = {
-      postdata: []
+      postdata: [], 
+      counter: 0
     };
   }
 
   componentDidMount() {
     console.log('cdm running')
     this.setState({ postdata: dummyData });
-  }
+  } 
 
+  incrementLikes = () => { 
+    this.setState = ((prevState, props) => {
+      return {
+        counter: prevState.counter + 1
+      };
+    });
+
+    }
+ 
   render() {
     return (
       <div className="App">

@@ -1,5 +1,6 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
+import LikeButton from "./LikeButton"; 
 // import PropTypes from "prop-types";
 import "./postcontainer.css";
 
@@ -24,7 +25,7 @@ const PostContainer = (props) => {
           alt="instaclone pic"
         />
         <div className="icon-bar">
-          <div>heart</div>
+          <LikeButton />
           <div>bubble</div>
         </div>
         <div>{props.postdata.likes} likes</div>
