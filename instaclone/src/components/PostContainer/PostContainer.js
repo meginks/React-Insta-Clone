@@ -1,6 +1,6 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
-import LikeButton from "./LikeButton"; 
+import Like from "./Like"; 
 // import PropTypes from "prop-types";
 import "./postcontainer.css";
 
@@ -25,7 +25,7 @@ const PostContainer = (props) => {
           alt="instaclone pic"
         />
         <div className="icon-bar">
-          <LikeButton />
+          <Like counter={props.counter} increment={props} />
           <div>bubble</div>
         </div>
         <div>{props.postdata.likes} likes</div>

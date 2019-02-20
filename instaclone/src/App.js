@@ -10,7 +10,6 @@ class App extends Component {
     super(); 
     this.state = {
       postdata: [], 
-      counter: 0
     };
   }
 
@@ -19,14 +18,6 @@ class App extends Component {
     this.setState({ postdata: dummyData });
   } 
 
-  incrementLikes = () => { 
-    this.setState = ((prevState, props) => {
-      return {
-        counter: prevState.counter + 1
-      };
-    });
-
-    }
  
   render() {
     return (
