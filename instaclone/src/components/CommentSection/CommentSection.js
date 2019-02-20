@@ -33,6 +33,7 @@ class CommentSection extends React.Component {
     handleChanges = event => { 
         this.setState({ comment: event.target.value }); 
     };
+
     submitComment = event => {
         // build out comment object -- then clone comments array -- then push object into new clone -- then set new clone as state and reset our comment string (the CS12 lecture is amazing) 
         event.preventDefault();
@@ -40,7 +41,12 @@ class CommentSection extends React.Component {
         const comments = this.state.comments.slice(); 
         comments.push(newComment);
 
-        this.setstate({comments, comment:''});
+        //  this.setstate({comments, comment:''});
+
+         this.setState({
+                    comments: [...this.state.comments, 
+                    newComment ] 
+                    }); 
 
         console.log("submit comment" + event.target.value);
     }; 
