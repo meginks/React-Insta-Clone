@@ -4,9 +4,8 @@ import PropTypes from "prop-types";
 import "./postcontainer.css";
 const PostContainer = (props) => {
   return (
-    <>
-      {" "}
-      {console.log(props)}
+    <div>
+      {console.log("WORK", props)}
       <div key={props.postdata.timestamp} className="post">
         <div className="username-bar">
           <img
@@ -19,7 +18,7 @@ const PostContainer = (props) => {
         <img
           className="post-image"
           src={props.postdata.imageUrl}
-          alt=" {postdata.username}'s instaclone pic"
+          alt="instaclone pic"
         />
         <div className="icon-bar">
           <div>heart</div>
@@ -27,11 +26,10 @@ const PostContainer = (props) => {
         </div>
         <div>{props.postdata.likes} likes</div>
         <div className="comment-section">
-          {console.log(props)}
           <CommentSection comment={props.postdata} />
         </div>
       </div>
-    </>
+      </div>
   );
 }
 

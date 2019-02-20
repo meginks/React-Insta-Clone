@@ -4,8 +4,8 @@ class AddComment extends React.Component {
     constructor (props) {
         super(props); 
         this.state = {
-            username:'',
-            comment: ''
+            username: "",
+            comment: ""
         };
     }
 

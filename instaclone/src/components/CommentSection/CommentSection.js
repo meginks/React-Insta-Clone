@@ -19,10 +19,12 @@ class CommentSection extends React.Component {
         //     username: '', 
         //     text: ''
         // }; 
+        console.log("please work", this.state.comment);
         this.setState({
             comment: [...this.state.comment, 
             {
-                text: this.state.comment.text
+                text: this.state.comment.text,
+                username: "username"
               } ]
         });
     };
