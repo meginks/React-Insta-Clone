@@ -45,7 +45,7 @@ class CommentSection extends React.Component {
 
          this.setState({
                     comments: [...this.state.comments, 
-                    newComment ] 
+                    newComment ], comment: ''
                     }); 
 
         console.log("submit comment" + event.target.value);
