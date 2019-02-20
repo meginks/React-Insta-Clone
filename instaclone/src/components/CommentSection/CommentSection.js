@@ -7,7 +7,7 @@ class CommentSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            comment: props.comments
+            comment: props.comment.comments
         };
     }
 
