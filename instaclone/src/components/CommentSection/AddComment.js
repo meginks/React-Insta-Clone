@@ -4,9 +4,10 @@ class AddComment extends React.Component {
     constructor (props) {
         super(props); 
         this.state = {
-            username: "",
+            username: "megan",
             comment: ""
         };
+        console.log("state for addcomment", this.state);
     }
 
     handleChanges = event => this.setState({ comment: event.target.value }); 
