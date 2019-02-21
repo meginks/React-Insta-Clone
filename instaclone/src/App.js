@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import dummyData from './dummy-data';
 import SearchBar from './components/SearchBar/SearchBar';
-import PostContainer from './components/PostContainer/PostContainer';
+import Post from './components/PostContainer/Post';
 import './App.css';
 
 class App extends Component {
@@ -18,6 +18,10 @@ class App extends Component {
     this.setState({ postdata: dummyData });
   } 
 
+  incrementLikes = () => {
+    let likes = this.state.postdata.likes + 1; 
+    this.setState({ likes }); 
+  }
  
   render() {
     return (
@@ -31,7 +35,7 @@ class App extends Component {
           <p>person</p>
         </header> 
         {this.state.postdata.map((post) => (
-        <PostContainer key={post.imageUrl} postdata={post} />
+        <Post key={post.imageUrl} postdata={post} />
         ))}
       </div>
     );

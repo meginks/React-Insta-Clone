@@ -1,11 +1,10 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
-import Like from "./Like"; 
 // import PropTypes from "prop-types";
 import "./postcontainer.css";
 
 
-const PostContainer = (props) => {
+const Post = (props) => {
   console.log("postcontainer props", props);
   return (
     <div>
@@ -25,7 +24,7 @@ const PostContainer = (props) => {
           alt="instaclone pic"
         />
         <div className="icon-bar">
-          <Like counter={props.counter} increment={props} />
+          <div>heart</div>
           <div>bubble</div>
         </div>
         <div>{props.postdata.likes} likes</div>
@@ -59,4 +58,4 @@ const PostContainer = (props) => {
 //   postdata: []
 // };
 
-export default PostContainer;
+export default Post;

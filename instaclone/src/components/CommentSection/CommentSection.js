@@ -47,8 +47,6 @@ class CommentSection extends React.Component {
                     comments: [...this.state.comments, 
                     newComment ], comment: ''
                     }); 
-
-        console.log("submit comment" + event.target.value);
     }; 
 
     render() {
