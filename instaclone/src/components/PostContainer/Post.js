@@ -2,7 +2,9 @@ import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 // import PropTypes from "prop-types";
 import "./postcontainer.css";
-const PostContainer = (props) => {
+
+
+const Post = (props) => {
   console.log("postcontainer props", props);
   return (
     <div>
@@ -56,4 +58,4 @@ const PostContainer = (props) => {
 //   postdata: []
 // };
 
-export default PostContainer;
+export default Post;

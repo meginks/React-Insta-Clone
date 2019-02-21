@@ -1,40 +1,30 @@
-import React, { Component } from 'react';
-import dummyData from './dummy-data';
-import SearchBar from './components/SearchBar/SearchBar';
-import PostContainer from './components/PostContainer/PostContainer';
-import './App.css';
+import React from 'react'; 
+import PostsPage from './PostsPage';
+import Login from './components/Login/Login';
+import withAuthenticate from './components/authentication/withAuthenticate';
 
-class App extends Component {
-  constructor() {
-    console.log('constructor running');
-    super(); 
-    this.state = {
-      postdata: []
-    };
-  }
+class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            username: ""
+        };
+    }
 
-  componentDidMount() {
-    console.log('cdm running')
-    this.setState({ postdata: dummyData });
-  }
+    componentDidMount() {
+        const username = localStorage.getItem("username"); 
+        this.setState({username: username}); 
+    }
 
-  render() {
-    return (
-      <div className="App">
-       <header className="header"> 
-          <p>instalogo</p>
-          <p>InstaClone</p> 
-          <SearchBar /> 
-          <p>Nav</p>
-          <p>heart</p>
-          <p>person</p>
-        </header> 
-        {this.state.postdata.map((post) => (
-        <PostContainer key={post.imageUrl} postdata={post} />
-        ))}
-      </div>
-    );
-  }
+    render() {
+        return (
+        <div>
+            <AuthenticatedPage />
+        </div>
+        )
+    }
 }
+
+const AuthenticatedPage = withAuthenticate(PostsPage)(Login);
 
 export default App;
