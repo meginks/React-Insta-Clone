@@ -34,7 +34,7 @@ class Login extends React.Component {
                 type="text"
                 placeholder="password"
                 name="password"
-                value= {this.state.password}
+                value={this.state.password}
                 onChange={this.state.handleInput}
                 />
             <button onClick={this.handleLogin}>Log in!</button>
