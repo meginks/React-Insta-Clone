@@ -21,7 +21,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleLogin} onChange={this.handleInput}>
                 <h1>Log in to Instaclone now!</h1>
                 <input 
                 type="text" 
