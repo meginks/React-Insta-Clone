@@ -3,8 +3,8 @@ import React from 'react';
 
 const withAuthenticate = PostsPage => Login => 
     class extends React.Component { 
-        constructor(props) {
-            super(props); 
+        constructor() {
+            super(); 
             this.state = {
                 loggedIn: false
             }
@@ -19,6 +19,7 @@ const withAuthenticate = PostsPage => Login =>
         }
         
         render() {
+        
             // if user is logged in, render app. 
             if (this.state.loggedIn) {
                 return <PostsPage />
