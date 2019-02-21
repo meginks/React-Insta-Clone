@@ -5,9 +5,9 @@ import Post from './components/PostContainer/Post';
 import './App.css';
 
 class PostsPage extends React.Component {
-  constructor() {
+  constructor(props) {
     console.log('constructor running');
-    super(); 
+    super(props); 
     this.state = {
       postdata: [], 
     };
