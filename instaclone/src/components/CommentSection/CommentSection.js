@@ -1,7 +1,18 @@
 import React from 'react'; 
 import Comment from './Comment';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import AddComment from './AddComment';
+import styled from 'styled-components';
+
+// styled components
+
+const WrapperComment = styled.div`
+    display: block;
+    text-align: left;
+    padding: 2rem;
+    `;
+
+// Comment Section Component
 
 class CommentSection extends React.Component {
     constructor(props) {
@@ -11,39 +22,19 @@ class CommentSection extends React.Component {
             comment: ''
         };
     }
-
-
-    // addNewComment = (event, index) => { 
-    //     console.log('is this working');
-    //     event.preventDefault();
-    //     const newComment = {  
-    //         username: '', 
-    //         text: ''
-    //     }; 
-    //     console.log("please work", this.state.comment);
-    //     this.setState({
-    //         comment: [...this.state.comment, 
-    //         {
-    //             text: this.state.comments.text,
-    //             username: "username"
-    //           } ]
-    //     });
-    // }; 
     
     handleChanges = event => { 
         this.setState({ comment: event.target.value }); 
     };
 
     submitComment = event => {
-        // build out comment object -- then clone comments array -- then push object into new clone -- then set new clone as state and reset our comment string (the CS12 lecture is amazing) 
+        
         event.preventDefault();
         const newComment = { text: this.state.comment, username: 'megan' }; 
         const comments = this.state.comments.slice(); 
         comments.push(newComment);
 
-        //  this.setstate({comments, comment:''});
-
-         this.setState({
+        this.setState({
                     comments: [...this.state.comments, 
                     newComment ], comment: ''
                     }); 
@@ -51,12 +42,12 @@ class CommentSection extends React.Component {
 
     render() {
         return (
-            <div>
+            <WrapperComment>
                  {this.state.comments.map((comment, index) => {
                      return  <Comment comment={comment} key={index}/> 
                  })}
                  <AddComment submitComment={this.submitComment} handleChanges={this.handleChanges} comment={this.state.comment} />  
-            </div>
+            </WrapperComment>
 
         )
         }
@@ -64,15 +55,15 @@ class CommentSection extends React.Component {
 
     }
 
-    // CommentSection.propTypes = {
-    //     comments: PropTypes.arrayOf(
-    //     PropTypes.shape({ text: PropTypes.string, username: PropTypes.string })
-    //     )
-    // };    
+    CommentSection.propTypes = {
+        comments: PropTypes.arrayOf(
+        PropTypes.shape({ text: PropTypes.string, username: PropTypes.string })
+        )
+    };    
 
-    // CommentSection.defaultProps = {
-    //     comment: []
-    // }; 
+    CommentSection.defaultProps = {
+        comment: []
+    }; 
 
 
 export default CommentSection; 
