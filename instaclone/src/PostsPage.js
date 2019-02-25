@@ -45,10 +45,6 @@ class PostsPage extends React.Component {
     this.setState({ postdata: dummyData });
   }
 
-  incrementLikes = () => {
-    let likes = this.state.postdata.likes + 1;
-    this.setState({ likes });
-  };
 
   render() {
     return (
@@ -72,7 +68,7 @@ class PostsPage extends React.Component {
           </IconDiv>
         </HeaderDiv>
         {this.state.postdata.map(post => (
-          <Post key={post.imageUrl} postdata={post} likepost={this.incrementlikes}/>
+          <Post key={post.imageUrl} postdata={post} />
         ))}
       </PostsPageDiv>
     );

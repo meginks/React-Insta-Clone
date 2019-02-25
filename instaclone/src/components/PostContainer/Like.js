@@ -20,7 +20,7 @@ const LikesDiv = Styled.div`
   font-size: 1.5rem;
 `;
 
-const InteractionSection = Styled.div`
+const LikeCommentSection = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -34,15 +34,20 @@ class Like extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: props.likes 
+            likes: props.postdata.likes 
         }
     }
 
+    incrementLikes = () => {
+        let likes = this.state.postdata.likes + 1;
+        this.setState({ likes });
+      };
+
     render() {
         return (
-        <InteractionSection>
+        <LikeCommentSection>
         <ButtonDivContainer>
-        <ButtonDiv onClick={this.state.likepost}>
+        <ButtonDiv onClick={this.state.incrementLikes}>
         <i className="far fa-heart"></i>
         </ButtonDiv>
         <ButtonDiv>
@@ -50,7 +55,7 @@ class Like extends React.Component {
         </ButtonDiv>
         </ButtonDivContainer>
         <LikesDiv>{this.state.likes} likes</LikesDiv>
-        </InteractionSection>
+        </LikeCommentSection>
         )
     }
 };

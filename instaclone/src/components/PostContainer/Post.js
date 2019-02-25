@@ -60,7 +60,7 @@ const Post = (props) => {
           src={props.postdata.imageUrl}
           alt="instaclone pic"
         /> 
-        <Like />
+        <Like  likes={props.likes} likepost={props.likepost} />
         <CommentSectionDiv>
           <CommentSection comment={props.postdata} />
         </CommentSectionDiv>
