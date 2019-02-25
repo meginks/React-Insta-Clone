@@ -1,7 +1,9 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
+import Like from './Like';
 import PropTypes from "prop-types";
 import Styled from 'styled-components';
+
 
 
 // Styled Components 
@@ -39,30 +41,6 @@ const PostImage = Styled.img`
  height: auto;
 `;
 
-const ButtonDiv = Styled.div`
-  font-size: 3rem;
-  padding: 1rem;
-
-`; 
-
-const ButtonDivContainer = Styled.div`
-  display: flex;
-  flex-direction: row;
-
-`;
-
-const LikesDiv = Styled.div`
-  padding: 0 1rem;
-  font-size: 1.5rem;
-`;
-
-const InteractionSection = Styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-`;
-
 const CommentSectionDiv = Styled.div``; 
 
 // Post Component 
@@ -82,17 +60,7 @@ const Post = (props) => {
           src={props.postdata.imageUrl}
           alt="instaclone pic"
         /> 
-        <InteractionSection>
-        <ButtonDivContainer>
-        <ButtonDiv>
-        <i className="far fa-heart"></i>
-        </ButtonDiv>
-        <ButtonDiv>
-        <i className="far fa-comment"></i>
-        </ButtonDiv>
-        </ButtonDivContainer>
-        <LikesDiv>{props.postdata.likes} likes</LikesDiv>
-        </InteractionSection>
+        <Like />
         <CommentSectionDiv>
           <CommentSection comment={props.postdata} />
         </CommentSectionDiv>

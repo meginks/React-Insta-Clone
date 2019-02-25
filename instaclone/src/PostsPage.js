@@ -46,7 +46,7 @@ class PostsPage extends React.Component {
   }
 
   incrementLikes = () => {
-    let likes = this.state.postdata.likes;
+    let likes = this.state.postdata.likes + 1;
     this.setState({ likes });
   };
 
@@ -58,7 +58,7 @@ class PostsPage extends React.Component {
             <i className="fab fa-instagram" /> {/** instagram logo */}
           </IconDiv>
           <IconDiv>
-            <InstagramName src="/assets/instagramname.png" alt="Instagram" />
+            <InstagramName src="../instagramname.png" alt="Instagram" />
           </IconDiv>
           <SearchBar />
           <IconDiv>
@@ -72,7 +72,7 @@ class PostsPage extends React.Component {
           </IconDiv>
         </HeaderDiv>
         {this.state.postdata.map(post => (
-          <Post key={post.imageUrl} postdata={post} />
+          <Post key={post.imageUrl} postdata={post} likepost={this.incrementlikes}/>
         ))}
       </PostsPageDiv>
     );
