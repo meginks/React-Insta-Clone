@@ -12,6 +12,7 @@ const FormComment = styled.form`
 
 const ButtonComment = styled.button`
   width: 10%;
+  font-size: 3rem;
 `;
 
 const InputComment = styled.input`
@@ -31,7 +32,7 @@ const AddComment = props => {
         onChange={props.handleChanges}
         placeholder="add new comment"
       />
-      <ButtonComment onClick={props.submitComment}>. . .</ButtonComment>
+      <ButtonComment onClick={props.submitComment}><i className="fas fa-ellipsis-h"></i></ButtonComment>
     </FormComment>
   );
 };

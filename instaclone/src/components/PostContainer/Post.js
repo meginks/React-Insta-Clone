@@ -1,38 +1,71 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import PropTypes from "prop-types";
-import "./postcontainer.css";
+import Styled from 'styled-components';
 
+
+// Styled Components 
+
+const PostDiv = Styled.div` 
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  padding: 2rem;
+`; 
+
+const UsernameBarDiv = Styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 3rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 100px;
+  height: auto;
+ 
+`;
+
+const UserImage = Styled.img`
+  border-radius: 50%;
+  padding: 2rem;
+  height: 100px;
+  width: 100px;
+`; 
+
+const PostImage = Styled.img`
+ max-width: 500px;
+ height: auto;
+`;
+
+const CommentSectionDiv = Styled.div``; 
+
+// Post Component 
 
 const Post = (props) => {
   console.log("postcontainer props", props);
   return (
-    <div>
-      {console.log("WORK", props)}
-      <div key={props.postdata.timestamp} className="post">
-        <div className="username-bar">
-          <img
-            className="user-image"
+      <PostDiv key={props.postdata.timestamp}>
+        <UsernameBarDiv>
+          <UserImage
             src={props.postdata.thumbnailUrl}
             alt={props.postdata.username}
           />
           <p>{props.postdata.username}</p>
-        </div>
-        <img
-          className="post-image"
+        </UsernameBarDiv>
+        <PostImage
           src={props.postdata.imageUrl}
           alt="instaclone pic"
-        />
-        <div className="icon-bar">
+        /> 
         <i className="far fa-heart"></i>
         <i className="far fa-comment"></i>
-        </div>
         <div>{props.postdata.likes} likes</div>
-        <div className="comment-section">
+        <CommentSectionDiv>
           <CommentSection comment={props.postdata} />
-        </div>
-      </div>
-      </div>
+        </CommentSectionDiv>
+        </PostDiv>
+      
   );
 }
 
