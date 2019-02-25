@@ -9,7 +9,8 @@ import styled from 'styled-components';
 const WrapperComment = styled.div`
     display: block;
     text-align: left;
-    padding: 2rem;
+    padding: 1rem;
+    font-size: 2rem;
     `;
 
 // Comment Section Component

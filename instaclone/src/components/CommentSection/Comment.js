@@ -12,11 +12,12 @@ const WrapperComment = styled.div`
 
 const UsernameComment = styled.span`
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.5rem;
     `;
 
 const TextComment = styled.p`
     padding: .2rem;
+    font-size: 1.2rem;
     `;
 
 

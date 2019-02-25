@@ -24,7 +24,8 @@ const PostsPageDiv = Styled.div`
 `;
 
 const IconDiv = Styled.div`
-padding: 20px;
+padding: 2rem;
+font-size: 3rem;
 
 `;
 
