@@ -34,20 +34,19 @@ class Like extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: props.postdata.likes 
+            likeposts: props.postdata.likes 
         }
     }
 
     incrementLikes = () => {
-        let likes = this.state.postdata.likes + 1;
-        this.setState({ likes });
+        this.setState({ likes : this.state.likeposts + 1 });
       };
 
     render() {
         return (
         <LikeCommentSection>
         <ButtonDivContainer>
-        <ButtonDiv onClick={this.state.incrementLikes}>
+        <ButtonDiv onClick={this.incrementLikes}>
         <i className="far fa-heart"></i>
         </ButtonDiv>
         <ButtonDiv>
