@@ -27,12 +27,12 @@ class PostsPage extends React.Component {
     return (
       <div className="App">
        <header className="header"> 
-          <p>instalogo</p>
+       <i className="fab fa-instagram"></i> {/** instagram logo */}
           <p>InstaClone</p> 
           <SearchBar /> 
-          <p>Nav</p>
-          <p>heart</p>
-          <p>person</p>
+          <i className="far fa-compass"></i> {/** navigation button */}
+          <i className="far fa-heart"></i> {/** likes button */}
+          <i className="far fa-user"></i> {/** followers button */}
         </header> 
         {this.state.postdata.map((post) => (
         <Post key={post.imageUrl} postdata={post} />

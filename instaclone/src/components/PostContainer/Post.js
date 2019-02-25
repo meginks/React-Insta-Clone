@@ -24,8 +24,8 @@ const Post = (props) => {
           alt="instaclone pic"
         />
         <div className="icon-bar">
-          <div>heart</div>
-          <div>bubble</div>
+        <i className="far fa-heart"></i>
+        <i className="far fa-comment"></i>
         </div>
         <div>{props.postdata.likes} likes</div>
         <div className="comment-section">
