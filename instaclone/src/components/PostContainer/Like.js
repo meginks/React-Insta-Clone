@@ -30,33 +30,23 @@ const LikeCommentSection = Styled.div`
 
 // Like Component 
 
-class Like extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            likeposts: props.postdata.likes 
-        }
-    }
+const Like = (props) => {
 
-    incrementLikes = () => {
-        this.setState({ likes : this.state.likeposts + 1 });
-      };
-
-    render() {
+    console.log("like props", props);
         return (
         <LikeCommentSection>
         <ButtonDivContainer>
-        <ButtonDiv onClick={this.incrementLikes}>
-        <i className="far fa-heart"></i>
+        <ButtonDiv >
+        <i onClick={() => props.incrementLikes()} className="far fa-heart"></i>
         </ButtonDiv>
         <ButtonDiv>
         <i className="far fa-comment"></i>
         </ButtonDiv>
         </ButtonDivContainer>
-        <LikesDiv>{this.state.likes} likes</LikesDiv>
+        <LikesDiv>{props.postdata.likes} likes</LikesDiv>
         </LikeCommentSection>
         )
-    }
+
 };
 
 export default Like; 
