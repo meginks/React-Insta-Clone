@@ -31,7 +31,7 @@ font-size: 3rem;
 
 // PostsPage Component (formerly App before Authentication page added)
 
-class PostsPage extends React.Component {
+class PostsPage extends Component {
   constructor(props) {
     console.log("constructor running");
     super(props);
@@ -45,8 +45,22 @@ class PostsPage extends React.Component {
     this.setState({ postdata: dummyData });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("component did update working", "prevProps", prevProps, "prevState", prevState);
+//  I'm not sure if this is something I'd need or not to get my like button to work. 
+    if (prevProps.likes !== this.props.likes) {
+      console.log("Oh the props they are a changing. . . oh the props they are a changing!");
+    } 
+    if (prevState.postdata.likes !== this.state.postdata.likes) {
+      console.log("likes they are a changing. . . oh the likes they are a changing!");
+    }
+  } 
+
   incrementLikes = (e) => {
-    this.setState({ newLikes : this.state.postdata.likes + 1 });
+    e.preventDefault();
+    let likeCount = this.state.postdata.likes; 
+    console.log("like count", likeCount);
+    this.setState({ likes : likeCount++ });
   };
 
   render() {
@@ -71,7 +85,7 @@ class PostsPage extends React.Component {
           </IconDiv>
         </HeaderDiv>
         {this.state.postdata.map(post => (
-          <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} newLikes={this.state.newLikes} />
+          <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.likes} />
         ))}
       </PostsPageDiv>
     );

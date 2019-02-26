@@ -37,7 +37,7 @@ const Like = (props) => {
         <LikeCommentSection>
         <ButtonDivContainer>
         <ButtonDiv >
-        <i onClick={() => props.incrementLikes()} className="far fa-heart"></i>
+        <i onClick={props.incrementLikes} className="far fa-heart"></i>
         </ButtonDiv>
         <ButtonDiv>
         <i className="far fa-comment"></i>
