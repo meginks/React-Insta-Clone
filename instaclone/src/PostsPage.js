@@ -45,22 +45,22 @@ class PostsPage extends Component {
     this.setState({ postdata: dummyData });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("component did update working", "prevProps", prevProps, "prevState", prevState);
-//  I'm not sure if this is something I'd need or not to get my like button to work. 
-    if (prevProps.likes !== this.props.likes) {
-      console.log("Oh the props they are a changing. . . oh the props they are a changing!");
-    } 
-    if (prevState.postdata.likes !== this.state.postdata.likes) {
-      console.log("likes they are a changing. . . oh the likes they are a changing!");
-    }
-  } 
+//   componentDidUpdate(prevProps, prevState) {
+//     console.log("component did update working", "prevProps", prevProps, "prevState", prevState);
+// //  I'm not sure if this is something I'd need or not to get my like button to work. 
+//     if (prevProps.likes !== this.props.likes) {
+//       console.log("Oh the props they are a changing. . . oh the props they are a changing!");
+//     } 
+//     if (prevState.postdata.likes !== this.state.postdata.likes) {
+//       console.log("likes they are a changing. . . oh the likes they are a changing!");
+//     }
+//   } 
 
   incrementLikes = (e) => {
     e.preventDefault();
     let likeCount = this.state.postdata.likes; 
     console.log("like count", likeCount);
-    this.setState({ likes : likeCount++ });
+    this.setState({ likes : this.state.postdata.likes + 1 });
   };
 
   render() {
@@ -85,7 +85,7 @@ class PostsPage extends Component {
           </IconDiv>
         </HeaderDiv>
         {this.state.postdata.map(post => (
-          <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.likes} />
+          <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.postdata.likes} />
         ))}
       </PostsPageDiv>
     );

@@ -60,7 +60,7 @@ const Post = (props) => {
           src={props.postdata.imageUrl}
           alt="instaclone pic"
         /> 
-        <Like  postdata={props.postdata} incrementLikes={props.incrementLikes} likes={props.postdata.likes}/>
+        <Like  postdata={props.postdata} incrementLikes={() => props.incrementLikes} likes={props.postdata.likes}/>
         <CommentSectionDiv>
           <CommentSection comment={props.postdata} />
         </CommentSectionDiv>
@@ -69,26 +69,26 @@ const Post = (props) => {
   );
 }
 
-Post.propTypes = {
-  postdata: 
-    PropTypes.shape({
-      // username: PropTypes.string.isRequired,
-      thumbnailUrl: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      likes: PropTypes.number.isRequired,
-      timestamp: PropTypes.string.isRequired,
-      comments: PropTypes.arrayOf(
-        PropTypes.shape({
-          // username: PropTypes.string.isRequired,
-          text: PropTypes.string.isRequired
-        })
-      )
-    })
+// Post.propTypes = {
+//   postdata: 
+//     PropTypes.shape({
+//       // username: PropTypes.string.isRequired,
+//       thumbnailUrl: PropTypes.string.isRequired,
+//       imageUrl: PropTypes.string.isRequired,
+//       likes: PropTypes.number.isRequired,
+//       timestamp: PropTypes.string.isRequired,
+//       comments: PropTypes.arrayOf(
+//         PropTypes.shape({
+//           // username: PropTypes.string.isRequired,
+//           text: PropTypes.string.isRequired
+//         })
+//       )
+//     })
   
-};
+// };
 
-Post.defaultProps = {
-  postdata: []
-};
+// Post.defaultProps = {
+//   postdata: []
+// };
 
 export default Post;
