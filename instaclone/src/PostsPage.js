@@ -36,13 +36,15 @@ class PostsPage extends Component {
     console.log("constructor running");
     super(props);
     this.state = {
-      postdata: []
+      postdata: [], 
+      likes: 0
     };
   }
 
   componentDidMount() {
     console.log("cdm running");
-    this.setState({ postdata: dummyData });
+    this.setState({ postdata: dummyData, 
+    likes: dummyData.likes });
   }
 
 //   componentDidUpdate(prevProps, prevState) {
