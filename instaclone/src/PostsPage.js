@@ -56,7 +56,16 @@ class PostsPage extends Component {
 //     }
 //   } 
 
- 
+  searchBarHandler = (e) => {
+    const posts = this.state.postdata.filter((post) => {
+      if (post.username.includes(e.target.value)) {
+        return post
+      }
+    });
+    this.setState({
+      searchData: posts
+    })
+  }
 
   render() {
     return (
@@ -68,7 +77,7 @@ class PostsPage extends Component {
           <IconDiv>
             <InstagramName src="../instagramname.png" alt="Instagram" />
           </IconDiv>
-          <SearchBar />
+          <SearchBar postdata={this.state.postdata} search={this.searchBarHandler} />
           <IconDiv>
             <i className="far fa-compass" /> {/** navigation button */}
           </IconDiv>
@@ -79,12 +88,21 @@ class PostsPage extends Component {
             <i className="far fa-user" /> {/** followers button */}
           </IconDiv>
         </HeaderDiv>
-        {this.state.postdata.map(post => (
+        <div>
+        {this.state.searchData.length > 0 ? {this.state.searchData.map(post => { 
+          return (
           <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.postdata.likes} />
-        ))}
+        ))}} : {this.state.postdata.map(post => (
+          <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.postdata.likes} />
+        ))}} 
+        </div>
       </PostsPageDiv>
     );
   }
 }
 
 export default PostsPage;
+
+
+// // this.state.postdata.map(post => (
+//   <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.postdata.likes}  

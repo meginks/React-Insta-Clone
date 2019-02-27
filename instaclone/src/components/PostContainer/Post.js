@@ -45,7 +45,6 @@ const CommentSectionDiv = Styled.div``;
 // Post Component 
 
 const Post = (props) => {
-  console.log("postcontainer props", props);
   return (
       <PostDiv key={props.postdata.timestamp}>
         <UsernameBarDiv>

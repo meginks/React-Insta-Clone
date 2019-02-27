@@ -14,17 +14,15 @@ const SearchBarInput = Styled.input`
 
 // SearchBar Component 
 
-class SearchBar extends React.Component {
-    
-    render() {
+const SearchBar = (props) => {
+
     return (
         <div>
             <SearchBarForm>
-            <SearchBarInput type="text" placeholder="search" /> 
+            <SearchBarInput type="text" placeholder="search" posts={props.postdata} searchPosts={props.searchPosts}/> 
             </SearchBarForm>
         </div>
     )
-    }
 }
 
 
