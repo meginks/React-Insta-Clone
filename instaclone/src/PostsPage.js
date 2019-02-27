@@ -37,6 +37,7 @@ class PostsPage extends Component {
     super(props);
     this.state = {
       postdata: [], 
+      searchData: []
     };
   }
 
@@ -68,6 +69,7 @@ class PostsPage extends Component {
   }
 
   render() {
+    console.log("searchData", this.state.searchData);
     return (
       <PostsPageDiv>
         <HeaderDiv>
@@ -89,12 +91,12 @@ class PostsPage extends Component {
           </IconDiv>
         </HeaderDiv>
         <div>
-        {this.state.searchData.length > 0 ? {this.state.searchData.map(post => { 
+        {this.state.searchData.length > 0 ? this.state.searchData.map(post => { 
           return (
           <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.postdata.likes} />
-        ))}} : {this.state.postdata.map(post => (
+        )}) : this.state.postdata.map(post => (
           <Post key={post.imageUrl} postdata={post} incrementLikes={this.incrementLikes} likes={this.state.postdata.likes} />
-        ))}} 
+        ))} 
         </div>
       </PostsPageDiv>
     );
