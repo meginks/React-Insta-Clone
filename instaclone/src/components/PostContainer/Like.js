@@ -43,7 +43,7 @@ const Like = (props) => {
         <i className="far fa-comment"></i>
         </ButtonDiv>
         </ButtonDivContainer>
-        <LikesDiv>{props.postdata.likes} likes</LikesDiv>
+        <LikesDiv>{props.likes} likes</LikesDiv>
         </LikeCommentSection>
         )
 

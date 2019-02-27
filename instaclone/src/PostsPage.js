@@ -37,14 +37,12 @@ class PostsPage extends Component {
     super(props);
     this.state = {
       postdata: [], 
-      likes: 0
     };
   }
 
   componentDidMount() {
     console.log("cdm running");
-    this.setState({ postdata: dummyData, 
-    likes: dummyData.likes });
+    this.setState({ postdata: dummyData });
   }
 
 //   componentDidUpdate(prevProps, prevState) {
@@ -58,12 +56,7 @@ class PostsPage extends Component {
 //     }
 //   } 
 
-  incrementLikes = (e) => {
-    e.preventDefault();
-    let likeCount = this.state.postdata.likes; 
-    console.log("like count", likeCount);
-    this.setState({ likes : this.state.postdata.likes + 1 });
-  };
+ 
 
   render() {
     return (

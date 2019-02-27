@@ -1,6 +1,5 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
-import Like from './Like';
 import PropTypes from "prop-types";
 import Styled from 'styled-components';
 
@@ -60,9 +59,8 @@ const Post = (props) => {
           src={props.postdata.imageUrl}
           alt="instaclone pic"
         /> 
-        <Like  postdata={props.postdata} incrementLikes={props.incrementLikes} likes={props.postdata.likes}/>
         <CommentSectionDiv>
-          <CommentSection comment={props.postdata} />
+          <CommentSection comment={props.postdata} likes={props.postdata.likes} />
         </CommentSectionDiv>
         </PostDiv>
       
