@@ -18,8 +18,8 @@ const SearchBar = (props) => {
 
     return (
         <div>
-            <SearchBarForm>
-            <SearchBarInput type="text" placeholder="search" posts={props.postdata} searchPosts={props.searchPosts}/> 
+            <SearchBarForm onKeyDown={props.search}>
+            <SearchBarInput type="text" placeholder="search" posts={props.postdata} search={props.search}/> 
             </SearchBarForm>
         </div>
     )
