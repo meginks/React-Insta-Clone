@@ -10,11 +10,17 @@ const HeaderDiv = Styled.header`
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-align-items: space-around;
+align-items: flex-start;
 font-size: 4rem;
 `;
 
-const InstagramName = Styled.img``;
+const InstagramName = Styled.div`
+font-family: 'Pacifico', cursive;
+font-size: 3rem;
+font-weight: lighter;
+border-left: 2px solid black;
+padding-left: 3rem;
+`;
 
 const PostsPageDiv = Styled.div`
   display: flex;
@@ -25,7 +31,7 @@ const PostsPageDiv = Styled.div`
 
 const IconDiv = Styled.div`
 padding: 2rem;
-font-size: 3rem;
+font-size: 3.5rem;
 
 `;
 
@@ -77,7 +83,7 @@ class PostsPage extends Component {
             <i className="fab fa-instagram" /> {/** instagram logo */}
           </IconDiv>
           <IconDiv>
-            <InstagramName src="../instagramname.png" alt="Instagram" />
+            <InstagramName>Instagram</InstagramName>
           </IconDiv>
           <SearchBar postdata={this.state.postdata} search={this.searchBarHandler} />
           <IconDiv>

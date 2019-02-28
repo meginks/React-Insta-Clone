@@ -9,8 +9,11 @@ const WrapperLogin = styled.div`
     align-items: center;
     justify-content: center; 
     background-color: tomato;
+    background-size: cover;
     width: 100%;
     height: 100%;
+    padding: 3rem;
+    margin: 3rem;
     `;
 
 const H1Login = styled.h1` 
