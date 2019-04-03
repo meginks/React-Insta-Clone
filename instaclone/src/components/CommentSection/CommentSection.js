@@ -1,78 +1,84 @@
-import React from 'react'; 
-import Comment from './Comment';
-// import PropTypes from 'prop-types';
-import AddComment from './AddComment';
+import React from "react";
+import Comment from "./Comment";
+import PropTypes from "prop-types";
+import AddComment from "./AddComment";
+import Like from "../PostContainer/Like";
+import styled from "styled-components";
+
+//
+// styled components
+
+const WrapperComment = styled.div`
+  display: block;
+  text-align: left;
+  padding: 1rem;
+  font-size: 2rem;
+`;
+
+// Comment Section Component
 
 class CommentSection extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            comments: props.comment.comments,
-            comment: ''
-        };
-    }
-
-
-    // addNewComment = (event, index) => { 
-    //     console.log('is this working');
-    //     event.preventDefault();
-    //     const newComment = {  
-    //         username: '', 
-    //         text: ''
-    //     }; 
-    //     console.log("please work", this.state.comment);
-    //     this.setState({
-    //         comment: [...this.state.comment, 
-    //         {
-    //             text: this.state.comments.text,
-    //             username: "username"
-    //           } ]
-    //     });
-    // }; 
-    
-    handleChanges = event => { 
-        this.setState({ comment: event.target.value }); 
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: props.likes,
+      comments: props.comment.comments,
+      comment: ""
     };
+  }
 
-    submitComment = event => {
-        // build out comment object -- then clone comments array -- then push object into new clone -- then set new clone as state and reset our comment string (the CS12 lecture is amazing) 
-        event.preventDefault();
-        const newComment = { text: this.state.comment, username: 'megan' }; 
-        const comments = this.state.comments.slice(); 
-        comments.push(newComment);
+  handleChanges = event => {
+    this.setState({ comment: event.target.value });
+  };
 
-        //  this.setstate({comments, comment:''});
+  submitComment = event => {
+    event.preventDefault();
+    const newComment = { text: this.state.comment, username: "megan" };
+    const comments = this.state.comments.slice();
+    comments.push(newComment);
 
-         this.setState({
-                    comments: [...this.state.comments, 
-                    newComment ], comment: ''
-                    }); 
-    }; 
+    this.setState({
+      comments: [...this.state.comments, newComment],
+      comment: ""
+    });
+  };
 
-    render() {
-        return (
-            <div>
-                 {this.state.comments.map((comment, index) => {
-                     return  <Comment comment={comment} key={index}/> 
-                 })}
-                 <AddComment submitComment={this.submitComment} handleChanges={this.handleChanges} comment={this.state.comment} />  
-            </div>
+  incrementLikes = e => {
+    e.preventDefault();
+    let likeCount = this.state.likes;
+    console.log("like count", likeCount);
+    this.setState({ likes: this.state.likes + 1 });
+  };
 
-        )
-        }
+  render() {
+    console.log("this.state.likes", this.state.likes);
+    return (
+      <div>
+        <Like incrementLikes={this.incrementLikes} likes={this.state.likes} />
 
+        <WrapperComment>
+          {this.state.comments.map((comment, index) => {
+            return <Comment comment={comment} key={index} />;
+          })}
+          <AddComment
+            submitComment={this.submitComment}
+            handleChanges={this.handleChanges}
+            comment={this.state.comment}
+          />
+        </WrapperComment>
+      </div>
+    );
+  }
+}
 
-    }
+CommentSection.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({ text: PropTypes.string, username: PropTypes.string })
+  )
+};
 
-    // CommentSection.propTypes = {
-    //     comments: PropTypes.arrayOf(
-    //     PropTypes.shape({ text: PropTypes.string, username: PropTypes.string })
-    //     )
-    // };    
+CommentSection.defaultProps = {
+  comment: []
+};
 
-    // CommentSection.defaultProps = {
-    //     comment: []
-    // }; 
-
-
-export default CommentSection; 
+export default CommentSection;

@@ -1,17 +1,28 @@
 import React from 'react';
-import './searchbar.css';
+import Styled from 'styled-components';
 
-class SearchBar extends React.Component {
-    
-    render() {
+// Styled Components 
+
+const SearchBarForm = Styled.form`
+    padding-top: 2.5rem;
+`; 
+
+const SearchBarInput = Styled.input`
+    padding: 1rem;
+
+`;
+
+// SearchBar Component 
+
+const SearchBar = (props) => {
+
     return (
         <div>
-            <form className="searchbar">
-            <input type="text" placeholder="search" /> 
-            </form>
+            <SearchBarForm onKeyDown={props.search}>
+            <SearchBarInput type="text" placeholder="search" posts={props.postdata} search={props.search}/> 
+            </SearchBarForm>
         </div>
     )
-    }
 }
 
 
